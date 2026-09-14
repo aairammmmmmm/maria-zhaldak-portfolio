@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Zhaldak — AI Designer / Generative Artist</title>
+<meta name="description" content="Maria Zhaldak — AI designer and generative artist. Sketch-to-image, motion, character design and brand content.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="#top" class="mark">M. Zhaldak</a>
+  <ul>
+    <li><a href="#top">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1 class="hero-name">Maria Zhaldak</h1>
+      <p class="hero-role">AI Designer <span class="accent">/</span> Generative Artist</p>
+    </div>
+    <div class="hero-media">
+      <div class="portrait-frame">
+        <span class="seal"></span>
+        <img src="assets/work/hero_portrait.png" alt="Portrait of Maria Zhaldak">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TOOLS MARQUEE ================= -->
+<div class="marquee" aria-label="Tools I work with">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ================= WORK ================= -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>A working set, not a full archive.</h2>
+    </div>
+
+    <p class="nda-note">
+      I'm sorry I can't show you everything — over the years the archive has grown past 400 projects.
+      Most of it sits behind client NDAs, so I'm not able to include it here. What follows is the small,
+      open slice I can share.
+    </p>
+
+    <div class="gallery" id="gallery"><!-- cards injected by script.js --></div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="experience" id="experience">
+  <div class="liquid-bg"><div class="blob"></div></div>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Experience</span>
+      <h2>Where the work has lived.</h2>
+    </div>
+    <div class="timeline" id="timeline"><!-- roles injected by script.js --></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <p class="contact-lead">Open to new projects <span class="amp">&amp;</span> collaborations — reach me wherever's easiest.</p>
+  </div>
+  <div class="links">
+    <a class="link-card wrap" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">
+      <span class="li-label">LinkedIn</span>
+      <span class="li-value">Connect</span>
+      <svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+    <a class="link-card wrap" href="https://www.behance.net/maryzhaldak" target="_blank" rel="noopener">
+      <span class="li-label">Behance</span>
+      <span class="li-value">Works</span>
+      <svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+    <a class="link-card wrap" href="https://t.me/aairamm" target="_blank" rel="noopener">
+      <span class="li-label">Telegram</span>
+      <span class="li-value">@aairamm</span>
+      <svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </div>
+  <footer>
+    <span>Maria Zhaldak — AI design &amp; generative art</span>
+    <span>© 2026</span>
+  </footer>
+</section>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modal">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
