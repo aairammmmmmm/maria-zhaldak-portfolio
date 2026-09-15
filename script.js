@@ -83,18 +83,8 @@ const WORKS = [
     thumb: "assets/work/realism/realism_00.jpg",
     kind: "realism",
     modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference.",
-    images: [
-      "assets/work/realism/realism_00.jpg","assets/work/realism/realism_01.jpg","assets/work/realism/realism_02.jpg",
-      "assets/work/realism/realism_03.jpg","assets/work/realism/realism_04.jpg","assets/work/realism/realism_05.jpg",
-      "assets/work/realism/realism_06.jpg","assets/work/realism/realism_07.jpg","assets/work/realism/realism_08.jpg",
-      "assets/work/realism/realism_09.jpg","assets/work/realism/realism_10.jpg","assets/work/realism/realism_11.jpg",
-      "assets/work/realism/realism_12.jpg","assets/work/realism/realism_13.jpg","assets/work/realism/realism_14.jpg",
-      "assets/work/realism/realism_15.jpg","assets/work/realism/realism_16.jpg","assets/work/realism/realism_17.jpg",
-      "assets/work/realism/realism_18.jpg","assets/work/realism/realism_19.jpg","assets/work/realism/realism_20.jpg",
-      "assets/work/realism/realism_21.jpg","assets/work/realism/realism_22.jpg","assets/work/realism/realism_23.jpg",
-      "assets/work/realism/realism_24.jpg","assets/work/realism/realism_25.jpg","assets/work/realism/realism_26.jpg",
-      "assets/work/realism/realism_27.jpg","assets/work/realism/realism_28.jpg","assets/work/realism/realism_29.jpg",
-      "assets/work/realism/realism_30.jpg"
+    image: [
+      "assets/work/realism/Slide 16_9 - 1.jpg"
     ]
   },
   {
