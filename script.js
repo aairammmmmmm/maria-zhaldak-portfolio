@@ -80,12 +80,10 @@ const WORKS = [
     id: "realism",
     title: "Realism",
     tag: "03 — case study",
-    thumb: "assets/work/realism/Portfolio Z.M.pdf",
-    kind: "realism",
-    modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference.",
-    image: [
-      "assets/work/realism/Portfolio Z.M.pdf"
-    ]
+    thumb: "assets/work/realism/realism_cover.jpg",
+    kind: "pdf",
+    pdf: "assets/work/realism/portfolio-zm.pdf",
+    modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference. Full case study below."
   },
   {
     id: "character",
@@ -285,8 +283,13 @@ function openModal(id){
           : `<img src="${g.images[0]}" alt="${g.style}">`}
       </div>
     `).join("");
-  } else if(work.kind === "realism"){
-    body = `<div class="realism-grid">${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}</div>`;
+  } else if(work.kind === "pdf"){
+    body = `
+      <div class="pdf-embed">
+        <iframe src="${work.pdf}" title="${work.title} PDF"></iframe>
+      </div>
+      <a class="pdf-link" href="${work.pdf}" target="_blank" rel="noopener">Open full PDF in a new tab</a>
+    `;
   } else if(work.kind === "image"){
     body = `<div>${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}</div>`;
   } else if(work.kind === "pending"){
