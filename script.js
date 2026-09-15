@@ -80,11 +80,11 @@ const WORKS = [
     id: "realism",
     title: "Realism",
     tag: "03 — case study",
-    thumb: "assets/work/realism/realism_00.jpg",
+    thumb: "assets/work/realism/Portfolio Z.M.pdf",
     kind: "realism",
     modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference.",
     image: [
-      "assets/work/realism/Slide 16_9 - 1.jpg"
+      "assets/work/realism/Portfolio Z.M.pdf"
     ]
   },
   {
