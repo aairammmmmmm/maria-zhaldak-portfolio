@@ -141,6 +141,16 @@ const WORKS = [
     ]
   },
   {
+    id: "packaging",
+    title: "AI Packaging Concept & Product Commercial",
+    tag: "07 — packaging",
+    thumb: "assets/work/packaging_concept.jpg",
+    kind: "media",
+    video: "assets/work/packaging_reel.mp4",
+    images: ["assets/work/packaging_concept.jpg"],
+    modalNote: "A packaging design concept for a fictional \u201cPocky \u2014 Licorice\u201d flavour: deep purple pack, green type, white elements and a silver border, with a subtle pistachio-cinnamon stick under a liquorice glaze. Built from an original idea in Seedream, then refined and animated into a short product commercial."
+  },
+  {
     id: "brand",
     title: "Brand Content",
     tag: "06 — campaign",
@@ -289,6 +299,11 @@ function openModal(id){
         <iframe src="${work.pdf}" title="${work.title} PDF"></iframe>
       </div>
       <a class="pdf-link" href="${work.pdf}" target="_blank" rel="noopener">Open full PDF in a new tab</a>
+    `;
+  } else if(work.kind === "media"){
+    body = `
+      <video src="${work.video}" controls playsinline style="margin-bottom:14px;"></video>
+      ${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}
     `;
   } else if(work.kind === "image"){
     body = `<div>${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}</div>`;
