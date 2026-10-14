@@ -69,7 +69,7 @@ const WORKS = [
   },
   {
     id: "video",
-    title: "Video",
+    title: "Cartoon Video",
     tag: "02 — motion",
     thumb: null,
     video: "assets/work/showreel.mp4",
@@ -143,7 +143,7 @@ const WORKS = [
   {
     id: "packaging",
     title: "AI Packaging Concept & Product Commercial",
-    tag: "07 — packaging",
+    tag: "06 — packaging",
     thumb: "assets/work/packaging_concept.jpg",
     kind: "media",
     video: "assets/work/packaging_reel.mp4",
@@ -153,11 +153,21 @@ const WORKS = [
   {
     id: "brand",
     title: "Brand Content",
-    tag: "06 — campaign",
+    tag: "07 — campaign",
     thumb: "assets/work/brand_content.jpg",
     kind: "image",
     images: ["assets/work/brand_content.jpg"],
     modalNote: "A small case built around a real product line — reimagined visuals in a Y2K mood."
+  },
+  {
+    id: "diesel",
+    title: "Diesel",
+    tag: "08 \u2014 brand film",
+    thumb: "assets/work/diesel_preview.png",
+    kind: "media",
+    video: "assets/work/diesel_video.mp4",
+    images: [],
+    modalNote: "A concept brand film for Diesel \u2014 a courier, an oversized red box and a surprise inside. Photoreal, AI-generated, built as a short commercial."
   }
 ];
 
