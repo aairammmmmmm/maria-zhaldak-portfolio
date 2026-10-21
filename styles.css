@@ -287,22 +287,14 @@ section{ position:relative; }
 }
 
 .gallery{
-  display:flex;
-  gap:22px;
-  overflow-x:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:28px 24px;
   padding:4px 0 26px;
-  scroll-snap-type:x proximity;
-  -webkit-overflow-scrolling:touch;
 }
 
-.gallery::-webkit-scrollbar{ height:6px; }
-.gallery::-webkit-scrollbar-thumb{ background:var(--accent); border-radius:4px; }
-.gallery::-webkit-scrollbar-track{ background:var(--line); }
-
 .card{
-  scroll-snap-align:start;
-  flex:0 0 auto;
-  width:min(78vw, 340px);
+  width:100%;
   aspect-ratio:4/5;
   position:relative;
   border:1px solid var(--line);
@@ -315,7 +307,6 @@ section{ position:relative; }
 
 /* stacked-photos effect for the multi-item "Other Works" card */
 .card--stack{
-  margin-right:14px;
   overflow:visible;
 }
 .card--stack::before,
@@ -656,17 +647,33 @@ section{ position:relative; }
   max-width:62ch;
 }
 
+.role .role-title{
+  margin:0 0 4px;
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--accent-deep);
+}
+
+.bullets{
+  margin:8px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:15px;
+  max-width:64ch;
+}
+.bullets li{ margin-top:6px; padding-left:2px; }
+.bullets li::marker{ color:var(--accent); }
+
 /* ---------------- grouped "one company" block ---------------- */
 
 .role--group{ padding-bottom:10px; }
 
-.group-note{
+.role .group-note{
   margin:0 0 20px;
-  font-size:14.5px;
-  font-style:normal;
-  color:var(--accent-deep);
-  font-weight:700;
-  max-width:56ch;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink);
+  max-width:60ch;
 }
 
 .sub-projects{
@@ -694,6 +701,7 @@ section{ position:relative; }
   color:var(--ink);
 }
 
+.sub-role .bullets{ font-size:14.5px; margin-top:6px; }
 .sub-role p{
   margin:4px 0 0;
   color:var(--muted);
@@ -835,3 +843,54 @@ footer{
   text-decoration:none;
 }
 .pdf-link:hover{ background:var(--accent-deep); }
+
+/* ---------------- Music covers ---------------- */
+
+.music-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px 14px;
+  align-items:start;
+}
+@media (max-width:760px){ .music-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:420px){ .music-grid{ grid-template-columns:1fr; } }
+
+.music-item{ margin:0; }
+.music-item img,
+.music-item video{
+  width:100%;
+  display:block;
+  margin:0;
+  background:var(--accent-wash);
+}
+.music-item img{
+  aspect-ratio:900 / 1225;
+  object-fit:cover;
+  object-position:top;
+}
+.music-item video{ aspect-ratio:1 / 1; object-fit:cover; background:#23251d; }
+.music-item a{ display:block; }
+
+.music-item figcaption{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding-top:8px;
+}
+.music-title{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:15px;
+  color:var(--ink);
+}
+.music-link{
+  font-family:var(--sans);
+  font-size:13px;
+  color:var(--accent-deep);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.music-link:hover{ color:var(--accent); }
+
+/* dark backing so video cards stay readable before the first frame loads */
+.card-media--video{ background:#23251d; }

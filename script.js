@@ -18,95 +18,171 @@ const TOOLS = [
 const EXPERIENCE = [
   {
     name: "Brainrocket",
+    role: "Senior Designer",
     date: "08/2025 — present",
-    text: "Creating AI-generated promotional visuals and motion content across multiple digital projects and visual styles, from stylized illustration to photorealistic imagery. Building visuals both from sketches and from scratch, translating concepts and moodboards into polished, campaign-ready assets. Maintaining character and visual consistency across image sets, and training custom LoRA models for project-specific styles and characters."
+    bullets: [
+      "Took part in 90 different brands that ranked among the company's top.",
+      "Onboarded new designers and trained teammates to work with production pipelines.",
+      "Developed brand ideas and creative concepts, and worked on project launches.",
+      "Created AI-generated promotional visuals and motion content across digital projects and visual styles, from stylized illustration to photorealistic imagery, building from sketches and from scratch and turning concepts and moodboards into campaign-ready assets.",
+      "Maintained character and visual consistency across image sets, animated advertising content, and trained custom LoRA models for project-specific styles and characters."
+    ]
   }
 ];
 
 // These five were all projects run by one and the same employer —
 // not five separate jobs. Shown as one continuous role with its projects nested inside.
 const ONE_COMPANY = {
+  title: "One Company, Five Projects",
   range: "10/2023 — 08/2025",
-  note: "One employer the whole way through — the five projects below all ran under the same company.",
+  note: "Worked across five projects under one employer, helping scale AI content production, improve creative workflows, and deliver high-volume visual campaigns for international brands.",
   projects: [
     {
       name: "Neurodesign",
       date: "12/2024 — 08/2025",
-      text: "AI-generated visual campaigns for architecture, real estate and large-scale developments across Saudi Arabia, the UAE, Belarus and other markets — storyboards, architectural visualizations and promotional videos from concept to final post-production, including work for NEOM The Line, DEYAAR and RAK Real Estate / Fairmont Residences Al Marjan Island."
+      bullets: [
+        "Delivered AI-generated visual campaigns for major real estate and architecture brands, including NEOM The Line, DEYAAR, and RAK Real Estate / Fairmont Residences Al Marjan Island.",
+        "Improved production efficiency by developing AI workflows for architectural visualization, storyboarding, and image/video generation.",
+        "Helped reduce reliance on traditional 3D rendering and video production through AI-powered creative pipelines."
+      ]
     },
     {
       name: "Blockchain Sport Drift",
       date: "08/2024 — 12/2024",
-      text: "Produced 30+ AI-generated advertising videos, developing visuals and motion content for large-scale promotional campaigns."
+      bullets: [
+        "Produced 30+ AI-generated advertising videos, supporting large-scale marketing campaigns.",
+        "Increased creative output by building reusable AI workflows for visual and motion content.",
+        "Helped streamline video production, animation and generation, enabling faster development of promotional materials."
+      ]
     },
     {
       name: "Arteki Studio",
       date: "05/2024 — 08/2024",
-      text: "Developed 20+ scripts and storyboards for AI-generated animated films and cartoons. Created visual concepts, characters and 3D-style imagery for commercial animation projects."
+      bullets: [
+        "Developed 90+ scripts and storyboards for AI-generated animated films and commercial projects.",
+        "Accelerated pre-production by using AI for character development, generation and animation, visual concepts, and 3D-style imagery.",
+        "Improved creative consistency across projects through structured visual development."
+      ]
     },
     {
       name: "Imba Label / JGGL",
       date: "04/2024 — 05/2024",
-      text: "Created AI-generated promotional videos for music artists, from concept and storyboard to final animated content. Developed AI avatars and visual campaigns that grew social engagement and audience."
+      bullets: [
+        "Created AI-generated music videos, promotional content, and digital avatars for recording artists.",
+        "Supported audience growth and social media engagement through distinctive AI-powered visual campaigns.",
+        "Streamlined content creation from initial concepts to finished animated videos."
+      ]
     },
     {
       name: "Blockchain Sport (Soccer)",
       date: "10/2023 — 04/2024",
-      text: "Created AI-generated social media and advertising content for football projects — static visuals and animated campaigns that contributed to a 60% increase in Instagram engagement."
+      bullets: [
+        "Contributed to a 90% increase in Instagram engagement through AI-generated visual content and animated campaigns.",
+        "Produced scalable advertising and social media assets to support brand visibility and audience engagement.",
+        "Improved content production efficiency using AI-driven creative workflows."
+      ]
     }
   ]
 };
 
-// gallery card definitions
+// gallery card definitions — shown top to bottom in this order
 const WORKS = [
   {
-    id: "sketch",
-    title: "Sketch to Image",
-    tag: "01 — process",
-    thumb: "assets/work/sketch_after.jpg",
-    kind: "compare",
-    modalNote: "Drag the divider to move between the pencil sketch and the finished, fully rendered image."
-  },
-  {
-    id: "video",
-    title: "Cartoon Video",
-    tag: "02 — motion",
-    thumb: null,
-    video: "assets/work/showreel.mp4",
-    kind: "video",
-    modalNote: "A short reel of animated, AI-generated campaign content."
-  },
-  {
     id: "realism",
-    title: "Realism",
-    tag: "03 — case study",
+    title: "Realism Architecture: Chrome Hearts",
+    tag: "case study",
     thumb: "assets/work/realism/realism_cover.jpg",
     kind: "pdf",
     pdf: "assets/work/realism/portfolio-zm.pdf",
     modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference. Full case study below."
   },
   {
-    id: "character",
-    title: "Character Sheet",
-    tag: "04 — design",
-    thumb: "assets/work/character_sheet.jpg",
+    id: "diesel",
+    title: "Diesel",
+    tag: "brand film",
+    thumb: "assets/work/diesel_preview.png",
+    kind: "media",
+    video: "assets/work/diesel_video.mp4",
+    images: [],
+    modalNote: "A concept brand film for Diesel \u2014 a courier, an oversized red box and a surprise inside. Photoreal, AI-generated, built as a short commercial."
+  },
+  {
+    id: "tallink",
+    title: "Tallink Short Reel",
+    tag: "short reel",
+    thumb: null,
+    video: "assets/work/tallink_reel.mp4",
+    kind: "video",
+    modalNote: "A short AI-generated reel about a restaurant."
+  },
+  {
+    id: "packaging",
+    title: "Pocky Product Concept",
+    tag: "packaging",
+    thumb: "assets/work/packaging_concept.jpg",
+    kind: "media",
+    video: "assets/work/packaging_reel.mp4",
+    images: ["assets/work/packaging_concept.jpg"],
+    modalNote: "A packaging design concept for a fictional \u201cPocky \u2014 Licorice\u201d flavour: deep purple pack, green type, white elements and a silver border, with a subtle pistachio-cinnamon stick under a liquorice glaze. Built from an original idea in Seedream, then refined and animated into a short product commercial."
+  },
+  {
+    id: "video",
+    title: "Cartoon Animation",
+    tag: "motion",
+    thumb: null,
+    video: "assets/work/showreel.mp4",
+    kind: "video",
+    modalNote: "A short reel of animated, AI-generated campaign content."
+  },
+  {
+    id: "brand",
+    title: "Jaded London Products",
+    tag: "campaign",
+    thumb: "assets/work/brand_content.jpg",
     kind: "image",
-    images: ["assets/work/character_sheet.jpg"],
-    modalNote: "A full character turnaround \u2014 front, back and three-quarter views built for consistency across a single design."
+    images: ["assets/work/brand_content.jpg"],
+    modalNote: "A small case built around a real product line \u2014 reimagined visuals in a Y2K mood."
+  },
+  {
+    id: "music",
+    title: "Music Covers",
+    tag: "music",
+    thumb: "assets/work/music_thumb.jpg",
+    kind: "music",
+    badge: "11 covers",
+    modalNote: "Cover art for tracks and singles. Tap a cover to listen on Spotify.",
+    tracks: [
+      { title: "obsession", img: "assets/work/music_obsession.jpg", url: "https://open.spotify.com/track/2Y4o7IgjNDlk2QLJcNimSb" },
+      { title: "On your mind", img: "assets/work/music_on_your_mind.jpg", url: "https://open.spotify.com/track/6ew8P3ETwJN0oJl0Don6rL" },
+      { title: "how you feel", img: "assets/work/music_how_you_feel.jpg", url: "https://open.spotify.com/album/1m0QvZumpqWViRVIi1qkaK" },
+      { title: "APATHY", img: "assets/work/music_apathy.jpg", url: "https://open.spotify.com/track/3i5KbajCeCpYS2dMPgudEV" },
+      { title: "FADED", img: "assets/work/music_faded.jpg", url: "https://open.spotify.com/track/3oWywV30qTdscwiAvay7Kx" },
+      { title: "OXYGEN", img: "assets/work/music_oxygen.jpg", url: "https://open.spotify.com/track/6xWPKivHIRCkDtQAPDm0GZ" },
+      { title: "POENIA", img: "assets/work/music_poenia.jpg", url: "https://open.spotify.com/track/2aXKAhSWPgFMePt4maaHfF", video: "assets/work/music_poenia.mp4" },
+      { title: "FIND", img: "assets/work/music_find.jpg", url: "https://open.spotify.com/track/1HNlixSgxNfAHKHMaiJb6B" },
+      { title: "eyes", img: "assets/work/music_eyes.jpg", url: "https://open.spotify.com/track/2di298vPxGClvO5bd6dH1z" },
+      { title: "can i ?", img: "assets/work/music_can_i.jpg", url: "https://open.spotify.com/track/5gvQKJ4Po7K6GYnvZ14wgo" },
+      { title: "\u041c\u0430\u043b\u043e", img: "assets/work/music_malo.jpg", url: "https://open.spotify.com/track/5Z9xJob4UmOlLgIe6anCAJ" }
+    ]
   },
   {
     id: "other",
-    title: "Other Works",
-    tag: "05 — range",
+    title: "Different Styles",
+    tag: "range",
     thumb: "assets/work/art_333.jpg",
     kind: "other-grouped",
-    badge: "11 pieces / 7 styles",
+    badge: "13 pieces / 8 styles",
     modalNote: "A wider range of styles \u2014 grouped below so it's clear how differently each one was built.",
     groups: [
       {
         style: "Painterly Game Cinematics",
         desc: "Stylized 3D game-cinematic scenes, built for fantasy world-building and RPG storytelling.",
         images: ["assets/work/art_333.jpg", "assets/work/art_222.jpg", "assets/work/art_gamestyle.jpg", "assets/work/art_aaa_gamestyle.jpg"]
+      },
+      {
+        style: "Cinematic Environments",
+        desc: "Moody, low-key environment renders with dramatic lighting and shallow depth of field.",
+        images: ["assets/work/other_env_1.jpg", "assets/work/other_env_2.jpg"]
       },
       {
         style: "3D Character Renders",
@@ -141,33 +217,21 @@ const WORKS = [
     ]
   },
   {
-    id: "packaging",
-    title: "AI Packaging Concept & Product Commercial",
-    tag: "06 — packaging",
-    thumb: "assets/work/packaging_concept.jpg",
-    kind: "media",
-    video: "assets/work/packaging_reel.mp4",
-    images: ["assets/work/packaging_concept.jpg"],
-    modalNote: "A packaging design concept for a fictional \u201cPocky \u2014 Licorice\u201d flavour: deep purple pack, green type, white elements and a silver border, with a subtle pistachio-cinnamon stick under a liquorice glaze. Built from an original idea in Seedream, then refined and animated into a short product commercial."
+    id: "sketch",
+    title: "Sketch to Image",
+    tag: "process",
+    thumb: "assets/work/sketch_after.jpg",
+    kind: "compare",
+    modalNote: "Drag the divider to move between the pencil sketch and the finished, fully rendered image."
   },
   {
-    id: "brand",
-    title: "Brand Content",
-    tag: "07 — campaign",
-    thumb: "assets/work/brand_content.jpg",
-    kind: "image",
-    images: ["assets/work/brand_content.jpg"],
-    modalNote: "A small case built around a real product line — reimagined visuals in a Y2K mood."
-  },
-  {
-    id: "diesel",
-    title: "Diesel",
-    tag: "08 \u2014 brand film",
-    thumb: "assets/work/diesel_preview.png",
-    kind: "media",
-    video: "assets/work/diesel_video.mp4",
-    images: [],
-    modalNote: "A concept brand film for Diesel \u2014 a courier, an oversized red box and a surprise inside. Photoreal, AI-generated, built as a short commercial."
+    id: "character",
+    title: "Characters",
+    tag: "design",
+    thumb: "assets/work/char_orange_1.jpg",
+    kind: "characters",
+    images: ["assets/work/character_sheet.jpg", "assets/work/char_orange_1.jpg", "assets/work/char_orange_2.jpg", "assets/work/char_prince.jpg", "assets/work/char_timewarp.jpg"],
+    modalNote: "Character design across different styles \u2014 a full turnaround sheet, studio portraits on orange, and illustrated heroes."
   }
 ];
 
@@ -190,20 +254,23 @@ track.innerHTML = loopTools.map(t => `
 
 const timeline = document.getElementById("timeline");
 
-const brainrocketHTML = EXPERIENCE.map(role => `
+const bulletsHTML = list => `<ul class="bullets">${list.map(b => `<li>${b}</li>`).join("")}</ul>`;
+
+const rolesHTML = EXPERIENCE.map(role => `
   <div class="role">
     <div class="role-top">
       <span class="role-name">${role.name}</span>
       <span class="role-date">${role.date}</span>
     </div>
-    <p>${role.text}</p>
+    ${role.role ? `<p class="role-title">${role.role}</p>` : ""}
+    ${bulletsHTML(role.bullets)}
   </div>
 `).join("");
 
 const groupHTML = `
   <div class="role role--group">
     <div class="role-top">
-      <span class="role-name">One company, five projects</span>
+      <span class="role-name">${ONE_COMPANY.title}</span>
       <span class="role-date">${ONE_COMPANY.range}</span>
     </div>
     <p class="group-note">${ONE_COMPANY.note}</p>
@@ -214,14 +281,14 @@ const groupHTML = `
             <span class="sub-name">${p.name}</span>
             <span class="role-date">${p.date}</span>
           </div>
-          <p>${p.text}</p>
+          ${bulletsHTML(p.bullets)}
         </div>
       `).join("")}
     </div>
   </div>
 `;
 
-timeline.innerHTML = brainrocketHTML + groupHTML;
+timeline.innerHTML = rolesHTML + groupHTML;
 
 // ============================================================
 // Gallery cards
@@ -231,7 +298,7 @@ const gallery = document.getElementById("gallery");
 
 function cardMediaHTML(work){
   if(work.kind === "video"){
-    return `<div class="card-media">
+    return `<div class="card-media card-media--video">
       <video src="${work.video}" muted loop playsinline preload="metadata"></video>
     </div>
     <div class="card-play">
@@ -315,6 +382,25 @@ function openModal(id){
       <video src="${work.video}" controls playsinline style="margin-bottom:14px;"></video>
       ${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}
     `;
+  } else if(work.kind === "characters"){
+    const [first, ...rest] = work.images;
+    body = `<img src="${first}" alt="${work.title}">
+      <div class="modal-grid">${rest.map(src => `<img src="${src}" alt="${work.title}">`).join("")}</div>`;
+  } else if(work.kind === "music"){
+    body = `<div class="music-grid">${work.tracks.map(t => `
+      <figure class="music-item">
+        <a href="${t.url}" target="_blank" rel="noopener"><img src="${t.img}" alt="${t.title} cover"></a>
+        <figcaption>
+          <span class="music-title">${t.title}</span>
+          <a class="music-link" href="${t.url}" target="_blank" rel="noopener">Listen on Spotify</a>
+        </figcaption>
+      </figure>
+      ${t.video ? `
+      <figure class="music-item">
+        <video src="${t.video}" controls playsinline preload="metadata"></video>
+        <figcaption><span class="music-title">${t.title} video</span></figcaption>
+      </figure>` : ""}
+    `).join("")}</div>`;
   } else if(work.kind === "image"){
     body = `<div>${work.images.map(src => `<img src="${src}" alt="${work.title}">`).join("")}</div>`;
   } else if(work.kind === "pending"){
