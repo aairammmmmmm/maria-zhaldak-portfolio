@@ -144,6 +144,14 @@ const WORKS = [
     modalNote: "A small case built around a real product line \u2014 reimagined visuals in a Y2K mood."
   },
   {
+    id: "moodboard",
+    title: "Moodboard 2024",
+    tag: "moodboard",
+    thumb: "assets/work/moodboard_cover.jpg",
+    kind: "pdf",
+    pdf: "assets/work/moodboard_2023.pdf"
+  },
+  {
     id: "music",
     title: "Music Covers",
     tag: "music",
@@ -412,7 +420,7 @@ function openModal(id){
     <div class="modal-head">${work.tag}</div>
     <h3 class="modal-title">${work.title}</h3>
     <div class="modal-body">
-      <p>${work.modalNote}</p>
+      ${work.modalNote ? `<p>${work.modalNote}</p>` : ""}
       ${body}
     </div>
   `;
