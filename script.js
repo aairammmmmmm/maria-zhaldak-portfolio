@@ -97,6 +97,16 @@ const WORKS = [
     modalNote: "A conceptual members-only \u201cChrome Hearts House Private\u201d, built on the real Crosby Estate in Northern California \u2014 imagined through architecture, hospitality and lifestyle with the help of AI (ComfyUI). The bar, archive, atelier and club details are AI-generated; a few real Chrome Hearts / Baccarat pieces were used as reference. Full case study below."
   },
   {
+    id: "realism-reel",
+    title: "Realism (Showreel video)",
+    tag: "showreel",
+    thumb: "assets/work/realism_reel_cover.jpg",
+    kind: "media",
+    video: "assets/work/realism_showreel.mp4",
+    images: ["assets/work/realism_1.jpg", "assets/work/realism_2.jpg"],
+    modalNote: ""
+  },
+  {
     id: "diesel",
     title: "Diesel",
     tag: "brand film",
@@ -230,7 +240,7 @@ const WORKS = [
     tag: "design",
     thumb: "assets/work/char_orange_1.jpg",
     kind: "characters",
-    images: ["assets/work/character_sheet.jpg", "assets/work/char_orange_1.jpg", "assets/work/char_orange_2.jpg", "assets/work/char_prince.jpg", "assets/work/char_timewarp.jpg"],
+    images: ["assets/work/character_sheet.jpg", "assets/work/char_orange_1.jpg", "assets/work/char_orange_2.jpg", "assets/work/char_prince.jpg", "assets/work/char_timewarp.jpg", "assets/work/char_new_1.jpg", "assets/work/char_new_2.jpg"],
     modalNote: "Character design across different styles \u2014 a full turnaround sheet, studio portraits on orange, and illustrated heroes."
   }
 ];
