@@ -250,13 +250,78 @@ const WORKS = [
 // ============================================================
 
 const track = document.getElementById("marqueeTrack");
-const loopTools = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
-track.innerHTML = loopTools.map(t => `
-  <span class="marquee-item">
-    <span class="ico"><svg viewBox="0 0 24 24" fill="none">${t.glyph}</svg></span>
-    ${t.name}
-  </span>
-`).join("");
+if(track){
+  const loopTools = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
+  track.innerHTML = loopTools.map(t => `
+    <span class="marquee-item">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none">${t.glyph}</svg></span>
+      ${t.name}
+    </span>
+  `).join("");
+}
+
+// ============================================================
+// Showreel video (in place of the tools marquee) — starts on its own when
+// scrolled into view (muted: browsers only allow that), sound button to unmute
+// ============================================================
+
+(function(){
+  const section = document.getElementById("intro");
+  const v = document.getElementById("introVideo");
+  if(!section || !v) return;
+  const soundBtn = document.getElementById("introSound");
+  const playBtn = document.getElementById("introPlay");
+  const bg = document.getElementById("introBg");
+  const ctx = bg && bg.getContext ? bg.getContext("2d") : null;
+
+  v.muted = true;
+  const tryPlay = () => {
+    const p = v.play();
+    if(p && p.catch) p.catch(() => section.classList.add("needs-tap"));
+  };
+  v.addEventListener("playing", () => section.classList.remove("needs-tap"));
+  playBtn.addEventListener("click", () => { section.classList.remove("needs-tap"); v.play(); });
+
+  soundBtn.addEventListener("click", () => {
+    v.muted = !v.muted;
+    if(!v.muted) v.play();
+    soundBtn.classList.toggle("on", !v.muted);
+    soundBtn.setAttribute("aria-pressed", String(!v.muted));
+    soundBtn.setAttribute("aria-label", v.muted ? "Turn sound on" : "Turn sound off");
+  });
+
+  // blurred copy of the video behind it, fills the sides on wide screens
+  let visible = true, last = 0;
+  if(ctx){
+    bg.width = 36; bg.height = 64;
+    const poster = new Image();
+    poster.onload = () => { if(v.readyState < 2) ctx.drawImage(poster, 0, 0, bg.width, bg.height); };
+    poster.src = v.poster;
+    const draw = (t) => {
+      if(visible && v.readyState >= 2 && t - last > 80){
+        try{ ctx.drawImage(v, 0, 0, bg.width, bg.height); }catch(e){}
+        last = t;
+      }
+      requestAnimationFrame(draw);
+    };
+    requestAnimationFrame(draw);
+  }
+
+  // starts by itself when it scrolls into view (from the beginning the first time),
+  // pauses when it leaves the screen
+  if("IntersectionObserver" in window){
+    let started = false;
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if(visible){
+        if(!started){ started = true; try{ v.currentTime = 0; }catch(e){} }
+        if(!section.classList.contains("needs-tap")) tryPlay();
+      } else v.pause();
+    }, { threshold: 0.25 }).observe(section);
+  } else {
+    tryPlay();
+  }
+})();
 
 // ============================================================
 // Experience timeline

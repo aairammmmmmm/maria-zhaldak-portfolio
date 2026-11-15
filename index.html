@@ -34,10 +34,28 @@
   </div>
 </header>
 
-<!-- ================= TOOLS MARQUEE ================= -->
-<div class="marquee" aria-label="Tools I work with">
-  <div class="marquee-track" id="marqueeTrack"></div>
-</div>
+<!-- ================= SHOWREEL VIDEO (in place of the tools marquee) ================= -->
+<section class="intro" id="intro" aria-label="Showreel">
+  <canvas class="intro-bg" id="introBg" aria-hidden="true"></canvas>
+  <video class="intro-video" id="introVideo"
+         src="assets/work/intro_reel.mp4" poster="assets/work/intro_poster.jpg"
+         muted loop playsinline preload="auto"></video>
+
+  <button class="intro-play" id="introPlay" type="button" aria-label="Play video">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+  </button>
+
+  <div class="intro-controls">
+    <button class="intro-sound" id="introSound" type="button" aria-label="Turn sound on" aria-pressed="false">
+      <svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m17 9 4 6M21 9l-4 6"/></svg>
+      <svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+    </button>
+    <a class="intro-scroll" href="#work">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </div>
+</section>
 
 <!-- ================= WORK ================= -->
 <section class="work" id="work">
@@ -48,9 +66,9 @@
     </div>
 
     <p class="nda-note">
-      3+ years designing AI-generated visuals for architecture, advertising, music and gaming brands.
-      The pieces below aren't from client work — they're built separately, to show range and process
-      across different styles. Most of my actual client work sits behind NDAs, which is exactly why these exist.
+      I create AI images and video, bring them to life through animation for architecture, advertising,
+      music, and gaming. I build custom ComfyUI workflows and automate production, taking projects from
+      the initial idea to the finished product.
     </p>
 
     <div class="gallery" id="gallery"><!-- cards injected by script.js --></div>
