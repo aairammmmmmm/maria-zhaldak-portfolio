@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Zhaldak — AI Designer / Generative Artist</title>
-<meta name="description" content="Maria Zhaldak — AI designer and generative artist. Sketch-to-image, motion, character design and brand content.">
+<meta name="description" content="Maria Zhaldak — AI designer and generative artist. Photoreal fashion and brand films, UGC, sketch-to-image, character design and brand content.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -50,14 +50,17 @@
       <svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m17 9 4 6M21 9l-4 6"/></svg>
       <svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
     </button>
-    <a class="intro-scroll" href="#work">
+    <a class="intro-scroll" href="#feature">
       <span>Scroll</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ================= WORK ================= -->
+<!-- ================= FEATURE: FASHION CAMPAIGN (right after the showreel) ================= -->
+<section class="feature" id="feature" aria-label="Featured project"><!-- filled by script.js --></section>
+
+<!-- ================= WORK FEED ================= -->
 <section class="work" id="work">
   <div class="wrap">
     <div class="section-head">
@@ -71,8 +74,10 @@
       the initial idea to the finished product.
     </p>
 
-    <div class="gallery" id="gallery"><!-- cards injected by script.js --></div>
+    <nav class="feed-nav" id="feedNav" aria-label="Work categories"><!-- filled by script.js --></nav>
   </div>
+
+  <div id="feed"><!-- projects injected by script.js --></div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
