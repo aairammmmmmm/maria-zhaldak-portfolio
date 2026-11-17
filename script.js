@@ -240,6 +240,37 @@ const FEED = [
     label: "Collections",
     intro: "Two bigger sets — open them to browse.",
     items: [ { kind: "collections", ids: ["other", "music"] } ]
+  },
+  {
+    id: "archive",
+    label: "Archive 2023–2024",
+    intro: "Earlier projects. The loops are short previews — open any film to watch it in full with sound.",
+    items: [
+      {
+        kind: "archive", id: "archive-films",
+        title: "Films",
+        videos: [
+          ["arch_dubai_tower", "Architecture film · Dubai", "Dubai Residential Tower", "An AI-generated film for a residential tower in Dubai — skyline, facade, rooftop pool and interiors."],
+          ["marjan_island", "Real estate film · Ras Al Khaimah", "Al Marjan Island", "Branded residences and hotel on Al Marjan Island — masterplan, sea and lifestyle shots."],
+          ["paradise_residences", "Real estate film", "Paradise Residences", "Interiors and amenities of a residential project — materials, light and calm everyday moments."],
+          ["saudi_stadium", "Architecture film", "Saudi Stadium", "A stadium concept seen from the city, the concourse and the air, with fans arriving at night."],
+          ["king_salman_stadium", "Stadium film", "King Salman Stadium", "Fans, flags and match-day atmosphere around King Salman Stadium."],
+          ["king_abdullah", "Sports film", "King Abdullah Sports City", "Fans, fighters and the stadium at sunset — produced fully with AI."],
+          ["ar_glasses", "Concept film", "AR Glasses", "A fan in a stadium box uses AR glasses to see live player stats over the pitch."],
+          ["sportlab", "Concept film", "SportLab", "An interactive sports venue — smart kiosks, food spots and a batting simulator."],
+          ["desert_drift", "Ad · Blockchain Sport Drift", "Desert Drift", "Drift cars tearing through desert dunes — a high-energy promo."],
+          ["gaming_city", "Promo film", "Esports & Gaming", "Gamers, an esports arena, glowing karts and a city lit up at night."],
+          ["al_sanadiqiyah", "Heritage film", "Al-Sanadiqiyah", "A cinematic walk through an old district in warm, dusty light."],
+          ["animated_ad", "3D animation · Brand story", "X-Labs Animated Story", "A playful animated story for X-Labs — a fluffy hero, an office adventure and a holiday twist."]
+        ],
+        imagesTitle: "Images",
+        images: [
+          "arc_city_1", "arc_city_2", "arc_drift_1", "arc_drift_2", "arc_fjord", "arc_sun",
+          "arc_lizard_guitar", "arc_lizard_desert", "arc_bison_mascot", "arc_skull_1", "arc_skull_2",
+          "arc_blocks_1", "arc_blocks_2"
+        ]
+      }
+    ]
   }
 ];
 
@@ -328,17 +359,20 @@ const COLLECTIONS = {
 const ICON_SOUND_OFF = '<svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m17 9 4 6M21 9l-4 6"/></svg>';
 const ICON_SOUND_ON = '<svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
 const ICON_EXPAND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
 const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
 const esc = s => String(s).replace(/"/g, "&quot;");
 
 // a looping, muted video with a sound button and an "open larger" button
+// m.full = a separate full-length file to open (the loop on the page is then a short silent preview)
 function vidHTML(m, title){
   return `
     <div class="vid" style="aspect-ratio:${m.ratio || "16/9"}">
-      <video data-src="${m.src}" ${m.poster ? `poster="${m.poster}"` : ""} muted loop playsinline preload="none" data-title="${esc(title || "")}"></video>
-      <button class="vid-sound" type="button" aria-label="Turn sound on" aria-pressed="false">${ICON_SOUND_OFF}${ICON_SOUND_ON}</button>
+      <video data-src="${m.src}" ${m.full ? `data-full="${m.full}"` : ""} ${m.poster ? `poster="${m.poster}"` : ""} muted loop playsinline preload="none" data-title="${esc(title || "")}"></video>
+      ${m.full ? "" : `<button class="vid-sound" type="button" aria-label="Turn sound on" aria-pressed="false">${ICON_SOUND_OFF}${ICON_SOUND_ON}</button>`}
       <button class="vid-open" type="button" aria-label="Open larger">${ICON_EXPAND}</button>
+      ${m.full ? `<span class="vid-watch">${ICON_PLAY} Watch with sound</span>` : ""}
     </div>`;
 }
 
@@ -485,6 +519,27 @@ function itemHTML(it){
           </div>
         </article>`;
 
+    case "archive":
+      return `
+        <article class="project" id="p-${it.id}">
+          <div class="wrap">
+            <h3 class="archive-sub">${it.title}</h3>
+            <div class="archive-grid">
+              ${it.videos.map(([base, tag, title, desc]) => `
+                <div class="archive-tile">
+                  ${vidHTML({ src: W + base + "_preview.mp4", full: W + base + ".mp4", poster: W + base + "_poster.jpg", ratio: "16/9" }, title)}
+                  <span class="project-tag">${tag}</span>
+                  <h4 class="archive-title">${title}</h4>
+                  <p class="archive-desc">${desc}</p>
+                </div>`).join("")}
+            </div>
+            <h3 class="archive-sub">${it.imagesTitle}</h3>
+            <div class="masonry">
+              ${it.images.map(n => `<img src="${W + n}.jpg" alt="Archive work" loading="lazy" class="zoomable">`).join("")}
+            </div>
+          </div>
+        </article>`;
+
     case "collections":
       return `
         <div class="wrap">
@@ -620,7 +675,7 @@ function muteAllExcept(keep){
   vids.forEach(v => {
     const box = v.parentElement;
     const sound = box.querySelector(".vid-sound");
-    sound.addEventListener("click", e => {
+    if(sound) sound.addEventListener("click", e => {
       e.stopPropagation();
       load(v);
       v.muted = !v.muted;
@@ -760,8 +815,8 @@ modal.addEventListener("click", e => { if(e.target === modal) closeModal(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
 
 function openVideo(v){
-  const src = v.dataset.src || v.currentSrc;
-  const time = v.currentTime || 0;
+  const src = v.dataset.full || v.dataset.src || v.currentSrc;
+  const time = v.dataset.full ? 0 : (v.currentTime || 0);
   v.pause();
   muteAllExcept(null);
   resumeVideo = v;
