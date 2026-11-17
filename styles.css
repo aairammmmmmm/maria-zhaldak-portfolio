@@ -976,27 +976,10 @@ footer{
   }
 }
 
-/* ---------- featured project, full width ---------- */
+/* ---------- featured project (right after the showreel) ---------- */
 
-.feature{ background:#1d1e19; }
-.feature-inner{ position:relative; }
-.feature .vid{
-  aspect-ratio:auto !important;
-  height:min(56.25vw, calc(100vh - 66px));
-  height:min(56.25vw, calc(100svh - 66px));
-  min-height:220px;
-  border-radius:0;
-}
-.feature .reel-panel{
-  left:clamp(20px, 5vw, 56px);
-  bottom:clamp(20px, 4vw, 48px);
-  max-width:470px;
-}
-.feature .reel-panel .project-title{ font-size:clamp(24px, 3vw, 34px); }
-@media (max-width:760px){
-  .feature{ background:var(--paper); }
-  .feature .reel-panel{ padding:16px 20px 8px; }
-}
+.feature{ padding:clamp(56px, 8vw, 100px) 0 0; background:var(--paper); }
+.feature-reel{ max-width:980px; }
 
 /* ---------- several videos / images side by side ---------- */
 

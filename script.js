@@ -81,7 +81,7 @@ const ONE_COMPANY = {
 };
 
 // ============================================================
-// Featured project — full width, right after the "What I use" showreel
+// Featured project — right after the "What I use" showreel (normal size, tap to open larger)
 // ============================================================
 
 const FEATURE = {
@@ -187,7 +187,7 @@ const FEED = [
         sets: [
           {
             title: "Character 1 — one sketch, ten styles",
-            before: W + "s2i_man_sketch.jpg", after: W + "s2i_man_result.jpg", ratio: "9/16", afterLabel: "Photo-realism",
+            before: W + "s2i_man_sketch.jpg", after: W + "s2i_man_result.jpg", ratio: "2/3", afterLabel: "Photo-realism",
             styles: [
               ["s2i_m_semi_1.jpg", "Semi-realism"], ["s2i_m_semi_2.jpg", "Semi-realism · v2"],
               ["s2i_m_3d_1.jpg", "Stylized 3D"], ["s2i_m_3d_2.jpg", "Stylized 3D · v2"],
@@ -381,9 +381,11 @@ function compareHTML(c, labelAfter = "Result", labelBefore = "Sketch"){
 // ============================================================
 
 document.getElementById("feature").innerHTML = `
-  <div class="feature-inner">
-    ${vidHTML({ src: FEATURE.video, poster: FEATURE.poster, ratio: FEATURE.ratio }, FEATURE.title)}
-    ${panelHTML(FEATURE)}
+  <div class="wrap">
+    <div class="reel feature-reel">
+      ${vidHTML({ src: FEATURE.video, poster: FEATURE.poster, ratio: FEATURE.ratio }, FEATURE.title)}
+      ${panelHTML(FEATURE)}
+    </div>
   </div>`;
 
 // ============================================================
